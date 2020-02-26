@@ -1,18 +1,32 @@
 var express = require("express");
 const app = express();
-const handlebars = require('express-handlebars')
-const Sequelize = require('sequelize')
-const sequelize = new Sequelize('cursonode', 'root', '', {
-	host: "localhost",
-	dialect: "mysql"
-})
+const handlebars = require('express-handlebars');
+const bodyParse = require('body-parser');
+
+
+	//Configurando o body parser
+	app.use(bodyParse.urlencoded({extended: false}))
+	app.use(bodyParse.json())
 
 
 
 
+	// app.get('/cad', function(req, res){
+	// 	res.send("Rota de cadastro funcionando com sucesso")
+	// })
+
+	app.get('/cad', function(req, res){
+		res.render("formulario")
+	})
+
+
+	app.post('/pegando', function(req, res){
+		req.body.titulo;
+		res.send("Titulo: " + req.body.titulo+ " Texto: " + req.body.Conteudo)
+	})
 //config template
 	app.engine('handlebars', handlebars({defaultLayout: "main"}))
-	app.set('view engine' 'handlebars')
+	app.set('view engine', 'handlebars')
 
 // app.get("/", function(req, res){
 // 	res.sendFile(__dirname + "/html/index.html")

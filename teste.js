@@ -25,6 +25,8 @@ const Postagem = sequelize.define('postagens', {
 // 	force: true
 // })
 
+
+
 Postagem.create({
 	titulo: "Qaulquer coisa",
 	conteudo: "Vai qualquer coisa também"
