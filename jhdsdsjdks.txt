@@ -1,0 +1,6 @@
+instalar express
+
+nodemon -g
+
+
+Sequelize
